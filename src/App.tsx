@@ -8,6 +8,7 @@ import Hero from "./components/Hero/Hero";
 import Trends from "./components/Trends/Trends";
 import axios from "axios";
 import Features from "./components/Features/Features";
+import CTA from "./components/CTA/CTA";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                 <Hero/>
                 <Trends coins={data}/>
                 <Features/>
+                <CTA/>
             </div>
             <ReactQueryDevtools initialIsOpen={false}/>
         </>
