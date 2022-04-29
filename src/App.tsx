@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import {ReactQueryDevtools} from "react-query/devtools";
+import {useQuery} from "react-query";
+
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import Trends from "./components/Trends/Trends";
+import axios from "axios";
+import Features from "./components/Features/Features";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const {status, data} = useQuery("coins", async () =>
+        await axios.get("https://coinranking1.p.rapidapi.com/coins?limit=4", {
+            headers: {
+                'X-RapidAPI-Key': '45dfe10115msh2d6b2294703214bp1fecf9jsndc521b5ab8d4',
+                'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+            }
+        })
+    );
+
+    if (status === "loading") return <p>Loading...</p>;
+    if (status === "error") return <p>Error :(</p>;
+
+    console.info(data?.data.data.coins)
+
+    // @ts-ignore
+    return (
+        <>
+            <div className="px-16 h-full text-white">
+                <Header/>
+                <Hero/>
+                <Trends coins={data}/>
+                <Features/>
+            </div>
+            <ReactQueryDevtools initialIsOpen={false}/>
+        </>
+    );
 }
 
 export default App;
