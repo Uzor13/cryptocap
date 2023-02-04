@@ -11,7 +11,7 @@ const CTA = () => {
                    subtitle="We'll tell you what cryptocurrencies are, how they work and why
                    you should own one right now. So let's do it."
             />
-            <Button value="Learn & Explore Now" classes="h-12 px-6"/>
+            <Button value="Learn & Explore Now" classes="h-12 px-6 bg-teal-600 text-white rounded "/>
         </div>
     );
 };

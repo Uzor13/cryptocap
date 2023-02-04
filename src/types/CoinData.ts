@@ -4,5 +4,6 @@ export default interface CoinData {
     name: string,
     icon: string,
     price: number,
-    change: number
+    change: number,
+    coinrankingUrl: string
 }
