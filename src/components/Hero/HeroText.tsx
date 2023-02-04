@@ -8,7 +8,7 @@ const HeroText = () => {
                 Here</h1>
             <p className="text-slate-300 text-center w-3/6">Only at CryptoCap, you can build a good portfolio and learn
                 best practices about cryptocurrency.</p>
-            <Button value="Get Started" classes="px-8 py-3"/>
+            <Button value="Get Started" classes="px-8 py-3 bg-teal-600 text-white rounded "/>
         </div>
     );
 };

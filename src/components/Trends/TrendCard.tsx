@@ -15,10 +15,9 @@ const TrendCard = ({coin}: any) => {
         color
     } = coin;
 
-    console.log(sparkline)
-
     return (
-        <div className="flex flex-col gap-4 w-1/3 rounded-lg p-4 card">
+        <div
+            className="flex flex-col h-40 gap-4 w-1/3 rounded-lg p-4 card bg-slate-700 bg-opacity-20 backdrop-blur-lg drop-shadow-lg">
             <div className="flex items-center justify-between gap-4">
                 <div style={{backgroundColor: `${color}`}}
                      className="h-10 w-10 relative rounded-full flex justify-center items-center">
